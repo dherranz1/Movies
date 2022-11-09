@@ -1,6 +1,6 @@
 package com.dherranz1.movies.domain
 
-class GetMovieUseCase(private val repository: IMoviesRepository) {
+class GetMovieUseCase(private val repository: MoviesRepository) {
     fun execute(id : String) : MovieDetailResponse? =
         repository.get(id)?.let {
             MovieDetailResponse(

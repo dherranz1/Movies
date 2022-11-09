@@ -1,6 +1,6 @@
 package com.dherranz1.movies.domain
 
-class GetAllMoviesUseCase(private val repository: IMoviesRepository) {
+class GetAllMoviesUseCase(private val repository: MoviesRepository) {
     fun execute() : List<MovieResponse> =
         repository.getAll().map {
             MovieResponse(
