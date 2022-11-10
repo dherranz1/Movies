@@ -1,11 +1,11 @@
 package com.dherranz1.movies.data.local.xml
 
 import android.content.SharedPreferences
-import com.dherranz1.app.IJsonSerializer
-import com.dherranz1.movies.data.IDataSource
+import com.dherranz1.app.JsonSerializer
+import com.dherranz1.movies.data.DataSource
 import com.dherranz1.movies.domain.MovieDomain
 
-class XMLDataSource(private val sharedPreferences: SharedPreferences, private val serializer : IJsonSerializer) : IDataSource {
+class MoviesXMLDataSource(private val sharedPreferences: SharedPreferences, private val serializer : JsonSerializer) : DataSource {
 
     private val editor = sharedPreferences.edit()
 
@@ -26,8 +26,5 @@ class XMLDataSource(private val sharedPreferences: SharedPreferences, private va
         movieList.forEach { movie ->
             save(movie)
         }
-
-    override fun delete(id: String) =
-        editor.remove(id).apply()
 
 }
