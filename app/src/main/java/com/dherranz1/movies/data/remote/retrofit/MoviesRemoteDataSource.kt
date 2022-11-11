@@ -1,6 +1,6 @@
 package com.dherranz1.movies.data.remote.retrofit
 
-import com.dherranz1.movies.data.local.DataSource
+
 import com.dherranz1.movies.data.remote.RemoteDataSource
 import com.dherranz1.movies.domain.MovieDomain
 import retrofit2.Retrofit

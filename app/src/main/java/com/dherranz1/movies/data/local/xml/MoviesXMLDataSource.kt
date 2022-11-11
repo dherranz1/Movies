@@ -2,11 +2,11 @@ package com.dherranz1.movies.data.local.xml
 
 import android.content.SharedPreferences
 import com.dherranz1.app.JsonSerializer
-import com.dherranz1.movies.data.local.DataSource
+import com.dherranz1.movies.data.local.LocalDataSource
 import com.dherranz1.movies.domain.MovieDomain
 
 class MoviesXMLDataSource(private val sharedPreferences: SharedPreferences, private val serializer : JsonSerializer) :
-    DataSource {
+    LocalDataSource {
 
     private val editor = sharedPreferences.edit()
 
