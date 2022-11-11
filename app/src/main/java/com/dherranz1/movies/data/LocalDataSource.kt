@@ -1,0 +1,10 @@
+package com.dherranz1.movies.data
+
+import com.dherranz1.movies.domain.MovieDomain
+
+interface LocalDataSource {
+    fun getAll(): List<MovieDomain>
+    fun get(id: String): MovieDomain?
+    fun save(movie: MovieDomain)
+    fun saveAll(movieList: List<MovieDomain>)
+}
