@@ -12,9 +12,7 @@ class MoviesDataRepository(private val dataSource : LocalDataSource, private val
         var listado = dataSource.getAll()
 
         if(listado.isEmpty()) {
-            Log.d("@dev","OBTENIENDO DE REMOTO")
             listado = remoteDataSource.getAll()
-            Log.d("@dev","GUARDANDO EN LOCAL")
             dataSource.saveAll(listado)
         }
 
@@ -23,10 +21,13 @@ class MoviesDataRepository(private val dataSource : LocalDataSource, private val
 
 
     override fun get(id: String): MovieDomain? {
-        val movie = dataSource.get(id)?: remoteDataSource.get(id)
+        var movie = dataSource.get(id)
 
-        movie?.apply {
-            dataSource.save(movie)
+        movie?: run {
+            movie = remoteDataSource.get(id)
+            movie?.let {
+                dataSource.save(it)
+            }
         }
 
         return movie
