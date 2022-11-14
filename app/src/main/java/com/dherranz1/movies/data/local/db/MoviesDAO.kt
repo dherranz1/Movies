@@ -10,9 +10,6 @@ interface MoviesDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(movie : MovieEntitie)
 
-    @Query("DELETE FROM $TABLE_NAME_MOVIES WHERE id = :id")
-    fun delete(id : String)
-
     @Query("SELECT * FROM $TABLE_NAME_MOVIES WHERE id = :id")
     fun get(id : String) : MovieEntitie?
 
