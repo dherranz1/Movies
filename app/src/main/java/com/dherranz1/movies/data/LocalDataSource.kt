@@ -1,4 +1,4 @@
-package com.dherranz1.movies.data
+package com.dherranz1.movies.data.local
 
 import com.dherranz1.movies.domain.MovieDomain
 
